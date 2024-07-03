@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Largest Element</title>
+
+</head>
+
+<body>
+    <h1>Find the Largest Element in an Array</h1>
+    <input type="text" id="arrayInput" placeholder="Enter array elements separated by commas">
+    <button onclick="findLargestElement()">Find Largest</button>
+    <p id="result"></p>
+    <script type="text/javascript">
+        function findLargestElement() {
+
+            let input = document.getElementById("arrayInput").value;
+
+
+            let array = [];
+            let numStr = "";
+            for (let i = 0; i < input.length; i++) {
+                if (input[i] === ',') {
+                    array.push(parseFloat(numStr));
+                    numStr = "";
+                } else {
+                    numStr += input[i];
+                }
+            }
+            if (numStr !== "") {
+                array.push(parseFloat(numStr));
+            }
+
+
+            let largestElement = array[0];
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] > largestElement) {
+                    largestElement = array[i];
+                }
+            }
+
+
+            document.getElementById("result").innerText = "Largest Element: " + largestElement;
+        }
+    </script>
+</body>
+
+</html>
+
+</html>
