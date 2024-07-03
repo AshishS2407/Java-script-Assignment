@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Selector</title>
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <h1>Fruit Selector</h1>
+        <label for="nameInput">Fruit Name:</label>
+        <input type="text" id="nameInput">
+        <button onclick="submitName()">Submit</button>
+        <br><br>
+        <label for="numberSelect">Enter Fruit number:</label>
+        <select id="numberSelect">
+            <option value=""></option>
+        </select>
+        <br><br>
+        <p>Fruit Name: <span id="fruitNameDisplay"></span></p>
+
+    </div>
+    <script>
+
+        let names = [];
+
+        function submitName() {
+            let name = document.getElementById("nameInput").value;
+            if (name) {
+                names.push(name);
+                document.getElementById("nameInput").value = "";
+                addFruitOption(names.length);
+            }
+        }
+
+        function addFruitOption(fruitNumber) {
+            let fruitSelect = document.getElementById("numberSelect");
+            let option = document.createElement("option");
+            option.value = fruitNumber;
+            option.text = fruitNumber;
+            fruitSelect.appendChild(option);
+            fruitSelect.onchange = displayFruitName;
+        }
+
+        function displayFruitName() {
+            let fruitNumber = document.getElementById("numberSelect").value;
+            if (fruitNumber) {
+                let fruitName = names[fruitNumber - 1];
+                document.getElementById("fruitNameDisplay").innerText = fruitName;
+            } else {
+                document.getElementById("fruitNameDisplay").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

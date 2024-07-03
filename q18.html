@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <input type="text" id="fac">
+        <button onclick="fac()">Factorial</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+
+        function fac() {
+
+            let factorial = document.getElementById("fac")
+            let Factorial = factorial.value
+            let result;
+
+            if (Factorial < 0 || isNaN(Factorial)) {
+
+                document.getElementById("result").innerHTML = "Please enter a positive number";
+                return;
+
+            }
+
+
+            let fact = 1
+            for (n = 1; n <= Factorial; n++) {
+                fact *= n;
+            }
+            document.getElementById("result").innerHTML = fact;
+        }
+    </script>
+    </script>
+</body>
+
+</html>

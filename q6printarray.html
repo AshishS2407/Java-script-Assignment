@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <label for="el"> Enter Element</label>
+        <input type="text" id="el">
+        <button onclick="el()">Enter</button>
+        <p>The Entered Array is : <span id="ar"></span></p>
+    </div>
+</body>
+
+<script>
+    let Element = [];
+
+    function el() {
+        let element = document.getElementById("el")
+        Elements = element.value
+        let c;
+
+        if (Elements !== null) {
+            Element.push(Elements)
+        }
+        document.getElementById("ar").innerHTML = Element;
+
+    }
+
+
+</script>
+
+</html>

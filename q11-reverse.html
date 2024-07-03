@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <label for="num">Enter a number:</label>
+        <input type="text" id="num" placeholder="Enter a number">
+        <button onclick="rn()">Reverse</button>
+        <p id="result"></p>
+    </div>
+    <script>
+
+
+
+
+        function rn() {
+
+            let number = document.getElementById("num")
+            let Number = number.value
+
+            if (isNaN(Number) || Number == '') {
+                document.getElementById("result").innerHTML = "invalid"
+                return;
+            }
+
+
+            let reversedNumber = ''
+
+            for (i = Number.length - 1; i >= 0; i--) {
+                reversedNumber += Number[i]
+            }
+            document.getElementById("result").innerHTML = reversedNumber;
+        }
+    </script>
+</body>
+
+</html>
+
+</html>

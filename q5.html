@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+    <label for="sid">Enter Side of Square</label>
+    <input type="text" name="" id="sid">
+    <button onclick="sq()">Area of square</button>
+    <p id="result"></p>
+
+
+    <label for="l">Length</label>
+    <input type="text" name="" id="l">
+    <label for="b">Breadth</label>
+    <input type="text" name="" id="b">
+    <button onclick="rc()">Area of rectangle</button>
+    <p id="resultr"></p>
+
+
+    <label for="r"> Enter Radius</label>
+    <input type="text" id="r">
+    <button onclick="cr()">Area of Circle</button>
+    <p id="resc"></p>
+
+    </div>
+
+</body>
+
+<script>
+    function sq() {
+
+        let side = document.getElementById("sid")
+
+        let Side = side.value
+        let result;
+
+        if (Side !== null && !isNaN(Side)) {
+            result = Side * Side
+        }
+
+        document.getElementById("result").innerHTML = result;
+        side.value = ''
+    }
+
+
+
+    //area of rectangle
+
+    function rc() {
+
+        let length = document.getElementById("l")
+        let breadth = document.getElementById("b")
+
+        let Length = length.value
+        let Breadth = breadth.value
+
+        let resultr;
+
+        if (Length !== null && !isNaN(Length) && Breadth !== null && !isNaN(Breadth)) {
+            resultr = Length * Breadth
+        }
+
+        document.getElementById("resultr").innerHTML = resultr;
+        length.value = ''
+        breadth.value = ''
+    }
+
+
+    function cr() {
+
+        let radius = document.getElementById("r")
+
+        Radius = radius.value;
+        let resultc;
+        const a = 3.14
+
+        if (Radius !== null && !isNaN(Radius)) {
+            resultc = a * Radius * Radius
+
+        }
+        document.getElementById("resc").innerHTML = resultc;
+        radius.value = ''
+    }
+
+
+
+
+</script>
+
+</html>

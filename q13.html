@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dare Selector</title>
+
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <h1>Dare Selector</h1>
+        <label for="dropdown"></label>
+        <select id="dropdown" onchange="displayDare()">
+            <option>Select option</option>
+        </select>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const dares = ["Speak for 5 Minute",
+            "Run 5 Km",
+            "Dance for 30 Minutes",
+            "Walk 2km"
+
+        ];
+
+        function displayDare() {
+
+            let select = document.getElementById("dropdown");
+            let Select = select.value
+            let Dare = dares[Select]
+
+            document.getElementById("result").innerHTML = "Dare:" + Dare
+        }
+
+        const dropdown = document.getElementById("dropdown");
+        for (i = 0; i < dares.length; i++) {
+            let option = document.createElement("option")
+            option.value = i;
+            option.textContent = "Dare" + (i + 1);
+            dropdown.appendChild(option);
+        }
+
+
+    </script>
+</body>
+
+</html>

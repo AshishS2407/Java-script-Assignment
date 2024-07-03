@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Number</title>
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <label for="fn">First Number</label>
+        <input type="number" id="fn"> <br> <br>
+        <label for="sn">Second Number</label>
+        <input type="number" id="sn"> <br> <br>
+        <button onclick="compare()"> compare</button>
+        <p id="result"></p>
+    </div>
+
+
+
+    <script>
+
+
+
+        function compare() {
+            let first = document.getElementById('fn')
+            let second = document.getElementById('sn')
+
+
+            let x = first.value;
+            let y = second.value;
+
+
+
+
+            let result;
+            if (x !== '' && y !== '' && !isNaN(x) && !isNaN(y)) {
+                if (x > y) {
+                    result = "First is greater than second number"
+                }
+                else if (x == y) {
+                    result = "both numbers are equal"
+                }
+                else {
+                    result = "Second is greater than first"
+                }
+
+
+                document.getElementById('result').innerHTML = result;
+
+
+
+            }
+            first.value = ''
+            second.value = ''
+
+        }
+
+
+        // let a,b,c;
+        // a= "Hello World";
+        // b= "hEllO World";
+        // c= a===b;
+
+        // document.write ( "The comparison is ", c);
+        // document.write (" <br>The Type of c is ", typeof c)
+    </script>
+</body>
+
+</html>

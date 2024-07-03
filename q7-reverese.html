@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="margin-left: 600px; margin-top: 100px;">
+        <h2>Enter element:</h2>
+        <input type="text" id="elementInput">
+        <button onclick="addElement()">Add</button>
+
+        <h3>The Entered array is:</h3>
+        <p id="arrayDisplay"></p>
+
+        <label for="indexSelect">Index</label>
+        <select id="indexSelect" onchange="displayElementByIndex()">
+
+        </select>
+        <span>The element is: <span id="indexDisplay"></span></span><br><br>
+
+
+
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput">
+        <button onclick="searchElement()">Search</button>
+        <p id="search"></p>
+
+
+        <h4>The array in sorted order is:</h4>
+        <p id="sortedArrayDisplay"></p>
+
+        <h4>The reversed array is:</h4>
+        <p id="reversedArrayDisplay"></p>
+
+    </div>
+
+    <script>
+
+        let array = [];
+
+        function addElement() {
+            const element = document.getElementById("elementInput").value;
+            if (element !== "") {
+                array.push(element);
+                document.getElementById("elementInput").value = "";
+                displayArray();
+                displaySortedArray();
+                displayReversedArray();
+            }
+        }
+
+        function displayArray() {
+            document.getElementById("arrayDisplay").innerHTML = array.join(", ");
+            IndexSelect();
+        }
+
+        function IndexSelect() {
+            const select = document.getElementById("indexSelect");
+            select.innerHTML = "";
+            for (let i = 0; i < array.length; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.text = i;
+                select.appendChild(option);
+            }
+        }
+
+        function getSortedArray() {
+            return array.slice().sort();
+        }
+
+        function displaySortedArray() {
+            const sortedArray = getSortedArray();
+            document.getElementById("sortedArrayDisplay").innerHTML = sortedArray.join(", ");
+        }
+
+        function getReversedArray() {
+            return array.slice().reverse();
+        }
+
+        function displayReversedArray() {
+            const reversedArray = getReversedArray();
+            document.getElementById("reversedArrayDisplay").innerHTML = reversedArray.join(", ");
+        }
+
+        function searchElement() {
+            const searchElement = document.getElementById("searchInput").value;
+            const index = array.indexOf(searchElement);
+            if (index !== -1) {
+                document.getElementById('search').innerHTML = `Element found at index ${index}`;
+            } else {
+                document.getElementById('search').innerHTML = "Element not found";
+            }
+        }
+
+        function displayElementByIndex() {
+            const index = document.getElementById("indexSelect").value;
+            const element = array[index];
+            if (element !== undefined) {
+                document.getElementById("indexDisplay").innerText = element;
+            }
+        }
+    </script>
+</body>
+
+</html
